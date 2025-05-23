@@ -54,10 +54,8 @@ object ConfigException {
         .append(messageLeading)
 
     messages.foldLeft(()) { (_, message) =>
-      builder.append(entryLeading).append(message)
-      if (!message.endsWith(entryTrailing))
-        builder.append(entryTrailing)
-
+      val _ = builder.append(entryLeading).append(message)
+      if (!message.endsWith(entryTrailing)) { val _ = builder.append(entryTrailing) }
       ()
     }
 
